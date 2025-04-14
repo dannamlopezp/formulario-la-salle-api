@@ -6,8 +6,9 @@ import './config/firebase'; // inicializa Firestore
 const app = express();
 app.use(express.json());
 app.use('/api', router);
+const whiteList = ['http://localhost:4200/', '']
 app.use(cors({
-    origin: '*',
+    origin: whiteList,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   }));
